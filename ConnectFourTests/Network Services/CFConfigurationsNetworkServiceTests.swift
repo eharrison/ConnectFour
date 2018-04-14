@@ -21,28 +21,25 @@ class CFConfigurationsNetworkServiceTests: XCTestCase {
     }
     
     func test_fetchConfigurations_ShouldStore_LastRequest() {
-        let configurationsNetworkService = CFConfigurationsNetworkService()
         
-        configurationsNetworkService.fetchConfigurations { (configurations) in
+        CFConfigurationsNetworkService.shared.fetchConfigurations { (configurations) in
             
         }
         
-        XCTAssertNotNil(configurationsNetworkService.lastRequest, "last Collection request must not be nil")
+        XCTAssertNotNil(CFConfigurationsNetworkService.shared.lastRequest, "last Collection request must not be nil")
     }
 
     func test_fetchConfigurations_When_CalledManyTimes_Should_Cancel_LastRequest() {
         let ex = expectation(description: "Should cancel last request")
         
-        let configurationsNetworkService = CFConfigurationsNetworkService()
-        
-        configurationsNetworkService.fetchConfigurations { (configurations) in
+        CFConfigurationsNetworkService.shared.fetchConfigurations { (configurations) in
             ex.fulfill()
         }
-        configurationsNetworkService.fetchConfigurations { (configurations) in
+        CFConfigurationsNetworkService.shared.fetchConfigurations { (configurations) in
             
         }
         
-        configurationsNetworkService.cancelLastRquest()
+        CFConfigurationsNetworkService.shared.cancelLastRquest()
         waitForExpectations(timeout: 5, handler: nil)
     }
 

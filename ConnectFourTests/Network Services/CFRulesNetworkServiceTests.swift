@@ -21,28 +21,24 @@ class CFRulesNetworkServiceTests: XCTestCase {
     }
     
     func test_fetchRules_ShouldStore_LastRequest() {
-        let rulesNetworkService = CFRulesNetworkService()
-        
-        rulesNetworkService.fetchRules { (rules) in
+        CFRulesNetworkService.shared.fetchRules { (rules) in
             
         }
         
-        XCTAssertNotNil(rulesNetworkService.lastRequest, "last Collection request must not be nil")
+        XCTAssertNotNil(CFRulesNetworkService.shared.lastRequest, "last Collection request must not be nil")
     }
     
     func test_fetchRules_When_CalledManyTimes_Should_Cancel_LastRequest() {
         let ex = expectation(description: "Should cancel last request")
         
-        let rulesNetworkService = CFRulesNetworkService()
-        
-        rulesNetworkService.fetchRules { (rules) in
+        CFRulesNetworkService.shared.fetchRules { (rules) in
             ex.fulfill()
         }
-        rulesNetworkService.fetchRules { (rules) in
+        CFRulesNetworkService.shared.fetchRules { (rules) in
             
         }
         
-        rulesNetworkService.cancelLastRquest()
+        CFRulesNetworkService.shared.cancelLastRquest()
         waitForExpectations(timeout: 5, handler: nil)
     }
     

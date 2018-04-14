@@ -21,28 +21,24 @@ class CFGameNetworkServiceTests: XCTestCase {
     }
     
     func test_fetchGame_ShouldStore_LastRequest() {
-        let gameNetworkService = CFGameNetworkService()
-        
-        gameNetworkService.fetchGame { (game) in
+        CFGameNetworkService.shared.fetchGame { (game) in
             
         }
         
-        XCTAssertNotNil(gameNetworkService.lastRequest, "last Collection request must not be nil")
+        XCTAssertNotNil(CFGameNetworkService.shared.lastRequest, "last Collection request must not be nil")
     }
     
     func test_fetchGame_When_CalledManyTimes_Should_Cancel_LastRequest() {
         let ex = expectation(description: "Should cancel last request")
         
-        let gameNetworkService = CFGameNetworkService()
-        
-        gameNetworkService.fetchGame { (game) in
+        CFGameNetworkService.shared.fetchGame { (game) in
             ex.fulfill()
         }
-        gameNetworkService.fetchGame { (game) in
+        CFGameNetworkService.shared.fetchGame { (game) in
             
         }
         
-        gameNetworkService.cancelLastRquest()
+        CFGameNetworkService.shared.cancelLastRquest()
         waitForExpectations(timeout: 5, handler: nil)
     }
     

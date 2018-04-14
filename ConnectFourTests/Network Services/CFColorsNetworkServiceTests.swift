@@ -22,28 +22,24 @@ class CFColorsNetworkServiceTests: XCTestCase {
     }
     
     func test_fetchColors_ShouldStore_LastRequest() {
-        let colorsNetworkService = CFColorsNetworkService()
-        
-        colorsNetworkService.fetchColors { (colors) in
+        CFColorsNetworkService.shared.fetchColors { (colors) in
             
         }
         
-        XCTAssertNotNil(colorsNetworkService.lastRequest, "last Collection request must not be nil")
+        XCTAssertNotNil(CFColorsNetworkService.shared.lastRequest, "last Collection request must not be nil")
     }
     
     func test_fetchColors_When_CalledManyTimes_Should_Cancel_LastRequest() {
         let ex = expectation(description: "Should cancel last request")
         
-        let colorsNetworkService = CFColorsNetworkService()
-        
-        colorsNetworkService.fetchColors { (colors) in
+        CFColorsNetworkService.shared.fetchColors { (colors) in
             ex.fulfill()
         }
-        colorsNetworkService.fetchColors { (colors) in
+        CFColorsNetworkService.shared.fetchColors { (colors) in
             
         }
         
-        colorsNetworkService.cancelLastRquest()
+        CFColorsNetworkService.shared.cancelLastRquest()
         waitForExpectations(timeout: 5, handler: nil)
     }
     

@@ -11,6 +11,8 @@ import AwesomeData
 
 public class CFRulesNetworkService {
     
+    public static var shared = CFRulesNetworkService()
+    
     public var lastRequest: URLSessionDataTask?
     
     public func cancelLastRquest() {

@@ -11,6 +11,8 @@ import AwesomeData
 
 public class CFColorsNetworkService {
     
+    public static var shared = CFColorsNetworkService()
+    
     public var lastRequest: URLSessionDataTask?
     
     public func cancelLastRquest() {

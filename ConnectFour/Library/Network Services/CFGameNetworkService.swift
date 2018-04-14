@@ -11,6 +11,8 @@ import AwesomeData
 
 public class CFGameNetworkService {
     
+    public static var shared = CFGameNetworkService()
+    
     public var lastRequest: URLSessionDataTask?
     
     public func cancelLastRquest() {
