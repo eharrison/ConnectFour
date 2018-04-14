@@ -17,3 +17,8 @@ public let rulesUrl = "\(mainUrl)configuration_rules"
 enum CFNotifications: String {
     case gameBoardCellTouched
 }
+
+struct CFPosition {
+    let rows: Int
+    let columns: Int
+}

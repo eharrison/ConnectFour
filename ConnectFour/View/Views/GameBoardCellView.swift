@@ -8,14 +8,7 @@
 
 import UIKit
 
-struct CFPosition {
-    let rows: Int
-    let columns: Int
-}
-
-class GameBoardCellView: UIView {
-    
-    var position: CFPosition?
+class GameBoardCellView: GameBoardStandardCellView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: CFNotifications.gameBoardCellTouched.rawValue), object: position)
@@ -36,16 +29,9 @@ extension GameBoardCellView {
 extension GameBoardView {
     
     func addGameBoardCell(withPosition position: CFPosition, size: CFPosition) {
-        let cellSize = CGSize(width: frame.size.width/CGFloat(size.columns), height: frame.size.height/CGFloat(size.rows))
-        
         let gameBoardCellView = GameBoardCellView.newInstance
-        gameBoardCellView.frame = CGRect(
-            x: cellSize.width*CGFloat(position.columns),
-            y: cellSize.height*CGFloat(position.rows),
-            width: cellSize.width,
-            height: cellSize.height)
-        
-        gameBoardCellView.position = position
+
+        gameBoardCellView.configure(withPosition: position, size: frame.size.cellSize(withBoardSize: size))
         
         addSubview(gameBoardCellView)
     }
