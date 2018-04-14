@@ -16,6 +16,9 @@ public class GameBoardView: UIView {
         super.awakeFromNib()
         
         self.backgroundColor = .white
+        
+        // add observers to actions
+        addObservers()
     }
     
     public override func layoutSubviews() {
@@ -40,8 +43,30 @@ public class GameBoardView: UIView {
         // add cells to board
         for row in 0..<game.rows {
             for column in 0..<game.column {
-                addGameBoardCell(withPosition: (row, column), size: (game.rows, game.column))
+                addGameBoardCell(withPosition: CFPosition(rows: row, columns: column), size: CFPosition(rows: game.rows, columns: game.column))
             }
         }
     }
+}
+
+// MARK: - Observers
+
+fileprivate extension Selector {
+    static let cellTouched = #selector(GameBoardView.cellTouched(_:))
+}
+
+extension GameBoardView {
+    
+    fileprivate func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: .cellTouched, name: NSNotification.Name(rawValue: CFNotifications.gameBoardCellTouched.rawValue), object: nil)
+    }
+    
+    @objc fileprivate func cellTouched(_ sender: Any) {
+        guard let notification = sender as? Notification, let position = notification.object as? CFPosition else {
+            return
+        }
+        
+        print("touched notification: \(position)")
+    }
+    
 }
