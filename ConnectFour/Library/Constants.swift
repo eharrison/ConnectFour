@@ -19,11 +19,7 @@ enum CFNotifications: String {
 }
 
 struct CFPosition {
-    let rows: Int
-    let columns: Int
-    
-    var matrixPosition: String {
-        return "\(columns)-\(rows)"
-    }
+    var rows: Int
+    var columns: Int
 }
 

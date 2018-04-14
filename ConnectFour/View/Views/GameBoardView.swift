@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum GameBoardCellStatus {
+enum GameBoardCellStatus: Int {
     case empty
     case player1
     case player2
@@ -18,7 +18,7 @@ public class GameBoardView: UIView {
     
     private var game: CFGame?
     
-    fileprivate var cellStatusMatrix = [String: GameBoardCellStatus]()
+    fileprivate var cellStatusMatrix = [[GameBoardCellStatus]]()
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -38,14 +38,15 @@ public class GameBoardView: UIView {
     public func configure(withGame game: CFGame) {
         self.game = game
         
+        // restart CellStatusMatrix
+        cellStatusMatrix = Array(repeating: Array(repeating: .empty, count: game.rows), count: game.column)
+        
+        // refresh board
         refreshBoard()
     }
     
     fileprivate func refreshBoard() {
         clearGameBoardCells()
-        
-        // initialise CellStatusMatrix
-        cellStatusMatrix = [:]
         
         guard let game = game else {
             return
@@ -77,20 +78,35 @@ extension GameBoardView {
             return
         }
         
-        addElement(toColumn: position.columns)
-        
-        print("touched notification: \(position)")
+        addChecker(toColumn: position.columns)
     }
     
-    func addElement(toColumn column: Int) {
+    func addChecker(toColumn column: Int) {
         guard let game = game else {
             return
         }
         
-        let position = CFPosition(rows: 0, columns: column)
+        var positionToAdd: CFPosition?
+        var currentRow = game.rows-1
         
-        cellStatusMatrix[position.matrixPosition] = .player1
+        // loops to matrix to see where we can add a checker
+        while positionToAdd == nil, currentRow >= 0 {
+            if cellStatusMatrix[column][currentRow] == .empty {
+                positionToAdd = CFPosition(rows: currentRow, columns: column)
+            }
+            
+            currentRow -= 1
+        }
         
+        guard let position = positionToAdd else {
+            print("Column \(column) is full")
+            return
+        }
+        
+        // add the player checker to matrix
+        cellStatusMatrix[position.columns][position.rows] = .player1
+        
+        // add checker to view
         addGameBoardChecker(withPosition: position, size: CFPosition(rows: game.rows, columns: game.column))
     }
     
