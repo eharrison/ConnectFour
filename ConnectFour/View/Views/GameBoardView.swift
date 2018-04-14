@@ -8,9 +8,17 @@
 
 import UIKit
 
+enum GameBoardCellStatus {
+    case empty
+    case player1
+    case player2
+}
+
 public class GameBoardView: UIView {
     
     private var game: CFGame?
+    
+    fileprivate var cellStatusMatrix = [String: GameBoardCellStatus]()
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +43,9 @@ public class GameBoardView: UIView {
     
     fileprivate func refreshBoard() {
         clearGameBoardCells()
+        
+        // initialise CellStatusMatrix
+        cellStatusMatrix = [:]
         
         guard let game = game else {
             return
@@ -66,7 +77,21 @@ extension GameBoardView {
             return
         }
         
+        addElement(toColumn: position.columns)
+        
         print("touched notification: \(position)")
+    }
+    
+    func addElement(toColumn column: Int) {
+        guard let game = game else {
+            return
+        }
+        
+        let position = CFPosition(rows: 0, columns: column)
+        
+        cellStatusMatrix[position.matrixPosition] = .player1
+        
+        addGameBoardChecker(withPosition: position, size: CFPosition(rows: game.rows, columns: game.column))
     }
     
 }

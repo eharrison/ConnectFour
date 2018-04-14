@@ -9,7 +9,13 @@
 import UIKit
 
 class GameBoardCheckerView: GameBoardStandardCellView {
+    @IBOutlet weak var mainView: UIView!
     
+    override func configure(withPosition position: CFPosition, size cellSize: CGSize) {
+        super.configure(withPosition: position, size: cellSize)
+        
+        mainView.layer.cornerRadius = cellSize.width/2
+    }
 }
 
 // MARK: - View Initialization
