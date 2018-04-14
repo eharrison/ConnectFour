@@ -18,6 +18,10 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameBoardView.winCallback = {
+            self.performSegue(withIdentifier: "finishedSegue", sender: self)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

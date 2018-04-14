@@ -48,6 +48,8 @@
 		0AD2D3E42081D7CC005BB2C8 /* GameBoardCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3E32081D7CC005BB2C8 /* GameBoardCheckerView.swift */; };
 		0AD2D3E72081DBF9005BB2C8 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3E62081DBF9005BB2C8 /* CGSizeExtensions.swift */; };
 		0AD2D3E92081DD72005BB2C8 /* GameBoardStandardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3E82081DD72005BB2C8 /* GameBoardStandardCellView.swift */; };
+		0AD2D3ED2081EF3B005BB2C8 /* ConnectFourGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3EC2081EF3B005BB2C8 /* ConnectFourGameManager.swift */; };
+		0AD2D3EF2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3EE2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift */; };
 		7BF3A87E6DF87C7F0C0DE692 /* Pods_ConnectFour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D553B909BA3B5A8CBEC6D0B3 /* Pods_ConnectFour.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +119,8 @@
 		0AD2D3E32081D7CC005BB2C8 /* GameBoardCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardCheckerView.swift; sourceTree = "<group>"; };
 		0AD2D3E62081DBF9005BB2C8 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		0AD2D3E82081DD72005BB2C8 /* GameBoardStandardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardStandardCellView.swift; sourceTree = "<group>"; };
+		0AD2D3EC2081EF3B005BB2C8 /* ConnectFourGameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectFourGameManager.swift; sourceTree = "<group>"; };
+		0AD2D3EE2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourGameManagerTests.swift; sourceTree = "<group>"; };
 		7240881473E3C705A606C73A /* Pods-ConnectFour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectFour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectFour/Pods-ConnectFour.debug.xcconfig"; sourceTree = "<group>"; };
 		D553B909BA3B5A8CBEC6D0B3 /* Pods_ConnectFour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectFour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				0AD2D37320818F92005BB2C8 /* ConnectFourTests.swift */,
+				0AD2D3EE2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift */,
 				0AD2D3AB20819ED5005BB2C8 /* Network Services */,
 				0AD2D3B02081A356005BB2C8 /* Model */,
 				0AD2D3B12081A37C005BB2C8 /* JSON Templates */,
@@ -223,8 +228,9 @@
 		0AD2D38F20819025005BB2C8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0AD2D3E52081DBE5005BB2C8 /* Extensions */,
 				0AD2D3A020819975005BB2C8 /* Constants.swift */,
+				0AD2D3EC2081EF3B005BB2C8 /* ConnectFourGameManager.swift */,
+				0AD2D3E52081DBE5005BB2C8 /* Extensions */,
 				0AD2D3AA20819C08005BB2C8 /* Network Services */,
 				0AD2D39020819025005BB2C8 /* Model */,
 			);
@@ -583,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD2D3ED2081EF3B005BB2C8 /* ConnectFourGameManager.swift in Sources */,
 				0AD2D3D52081AB84005BB2C8 /* GameFinishedViewController.swift in Sources */,
 				0AD2D3D12081AB39005BB2C8 /* GameViewModel.swift in Sources */,
 				0AD2D3E72081DBF9005BB2C8 /* CGSizeExtensions.swift in Sources */,
@@ -611,6 +618,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD2D3EF2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift in Sources */,
 				0AD2D3AD20819EF1005BB2C8 /* CFConfigurationsNetworkServiceTests.swift in Sources */,
 				0AD2D3AF2081A34E005BB2C8 /* CFConfigurationsTests.swift in Sources */,
 				0AD2D3CD2081A803005BB2C8 /* CFRulesNetworkServiceTests.swift in Sources */,

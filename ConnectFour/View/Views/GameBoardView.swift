@@ -8,17 +8,11 @@
 
 import UIKit
 
-enum GameBoardCellStatus: Int {
-    case empty
-    case player1
-    case player2
-}
+typealias WinCallback = () -> Void
 
 public class GameBoardView: UIView {
     
-    private var game: CFGame?
-    
-    fileprivate var cellStatusMatrix = [[GameBoardCellStatus]]()
+    var winCallback: WinCallback?
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -36,10 +30,7 @@ public class GameBoardView: UIView {
     }
     
     public func configure(withGame game: CFGame) {
-        self.game = game
-        
-        // restart CellStatusMatrix
-        cellStatusMatrix = Array(repeating: Array(repeating: .empty, count: game.rows), count: game.column)
+        ConnectFourGameManager.shared.configure(withGame: game)
         
         // refresh board
         refreshBoard()
@@ -48,7 +39,7 @@ public class GameBoardView: UIView {
     fileprivate func refreshBoard() {
         clearGameBoardCells()
         
-        guard let game = game else {
+        guard let game = ConnectFourGameManager.shared.game else {
             return
         }
         
@@ -78,36 +69,13 @@ extension GameBoardView {
             return
         }
         
-        addChecker(toColumn: position.columns)
-    }
-    
-    func addChecker(toColumn column: Int) {
-        guard let game = game else {
-            return
-        }
-        
-        var positionToAdd: CFPosition?
-        var currentRow = game.rows-1
-        
-        // loops to matrix to see where we can add a checker
-        while positionToAdd == nil, currentRow >= 0 {
-            if cellStatusMatrix[column][currentRow] == .empty {
-                positionToAdd = CFPosition(rows: currentRow, columns: column)
-            }
+        ConnectFourGameManager.shared.handleTurn(withColumn: position.columns) { (position, size, isWinner) in
+            // add checker
+            self.addGameBoardChecker(withPosition: position, size: size)
             
-            currentRow -= 1
+            if isWinner {
+                self.winCallback?()
+            }
         }
-        
-        guard let position = positionToAdd else {
-            print("Column \(column) is full")
-            return
-        }
-        
-        // add the player checker to matrix
-        cellStatusMatrix[position.columns][position.rows] = .player1
-        
-        // add checker to view
-        addGameBoardChecker(withPosition: position, size: CFPosition(rows: game.rows, columns: game.column))
     }
-    
 }

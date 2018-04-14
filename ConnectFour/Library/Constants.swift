@@ -14,6 +14,8 @@ public let colorUrl = "\(mainUrl)configuration_color"
 public let gameUrl = "\(mainUrl)configuration_game"
 public let rulesUrl = "\(mainUrl)configuration_rules"
 
+public let numberToWin = 4
+
 enum CFNotifications: String {
     case gameBoardCellTouched
 }
