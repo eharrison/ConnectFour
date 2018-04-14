@@ -10,4 +10,15 @@ import Foundation
 
 public class GameViewModel {
     
+    public func refreshGame(_ completion: @escaping (CFGame) -> Void) {
+        CFGameNetworkService.shared.fetchGame { (games) in
+            guard let game = games.first else {
+                print("Couldn't fetch game...")
+                return
+            }
+            
+            completion(game)
+        }
+    }
+    
 }

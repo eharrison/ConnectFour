@@ -19,5 +19,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // refresh game from API
+        gameViewModel.refreshGame { (game) in
+            self.gameBoardView.configure(withGame: game)
+        }
+    }
 }
