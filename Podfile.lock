@@ -1,5 +1,6 @@
 PODS:
   - AwesomeData (0.5.8)
+  - AwesomeUIMagic (0.4.4)
   - Firebase/Core (4.9.0):
     - FirebaseAnalytics (= 4.0.9)
     - FirebaseCore (= 4.0.15)
@@ -39,6 +40,7 @@ PODS:
 
 DEPENDENCIES:
   - AwesomeData (from `https://github.com/iOSWizards/AwesomeData.git`, tag `0.5.8`)
+  - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.4`)
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
@@ -47,14 +49,21 @@ EXTERNAL SOURCES:
   AwesomeData:
     :git: https://github.com/iOSWizards/AwesomeData.git
     :tag: 0.5.8
+  AwesomeUIMagic:
+    :git: https://github.com/iOSWizards/AwesomeUIMagic
+    :tag: 0.4.4
 
 CHECKOUT OPTIONS:
   AwesomeData:
     :git: https://github.com/iOSWizards/AwesomeData.git
     :tag: 0.5.8
+  AwesomeUIMagic:
+    :git: https://github.com/iOSWizards/AwesomeUIMagic
+    :tag: 0.4.4
 
 SPEC CHECKSUMS:
   AwesomeData: 088b588547d3e6a81bf2f149dca116f00233ee34
+  AwesomeUIMagic: 0f7960b0396a2b9fb7080484eb192c5f07a4d6cd
   Firebase: 632216af3ed7f31e3be34776947fdc7546cfb572
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
   FirebaseCore: 3bd047463058fa6b5d312c97502c52e45401cdfb
@@ -66,6 +75,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 990c3e99ce787b161a94b492b9babe40b0a55e01
+PODFILE CHECKSUM: c1b5896a1f0facf59391c6ef5b6278705ade265e
 
 COCOAPODS: 1.4.0

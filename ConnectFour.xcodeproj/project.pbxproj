@@ -35,6 +35,13 @@
 		0AD2D3C92081A7F2005BB2C8 /* CFColorsNetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3C82081A7F2005BB2C8 /* CFColorsNetworkServiceTests.swift */; };
 		0AD2D3CB2081A7FB005BB2C8 /* CFGameNetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3CA2081A7FB005BB2C8 /* CFGameNetworkServiceTests.swift */; };
 		0AD2D3CD2081A803005BB2C8 /* CFRulesNetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3CC2081A803005BB2C8 /* CFRulesNetworkServiceTests.swift */; };
+		0AD2D3CF2081AB26005BB2C8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3CE2081AB26005BB2C8 /* GameViewController.swift */; };
+		0AD2D3D12081AB39005BB2C8 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3D02081AB39005BB2C8 /* GameViewModel.swift */; };
+		0AD2D3D32081AB70005BB2C8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3D22081AB70005BB2C8 /* MenuViewController.swift */; };
+		0AD2D3D52081AB84005BB2C8 /* GameFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3D42081AB84005BB2C8 /* GameFinishedViewController.swift */; };
+		0AD2D3D72081ABA1005BB2C8 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3D62081ABA1005BB2C8 /* MenuViewModel.swift */; };
+		0AD2D3D92081ABAF005BB2C8 /* GameFinishedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3D82081ABAF005BB2C8 /* GameFinishedViewModel.swift */; };
+		0AD2D3DB2081BF04005BB2C8 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3DA2081BF04005BB2C8 /* GameBoardView.swift */; };
 		7BF3A87E6DF87C7F0C0DE692 /* Pods_ConnectFour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D553B909BA3B5A8CBEC6D0B3 /* Pods_ConnectFour.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +98,13 @@
 		0AD2D3C82081A7F2005BB2C8 /* CFColorsNetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFColorsNetworkServiceTests.swift; sourceTree = "<group>"; };
 		0AD2D3CA2081A7FB005BB2C8 /* CFGameNetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFGameNetworkServiceTests.swift; sourceTree = "<group>"; };
 		0AD2D3CC2081A803005BB2C8 /* CFRulesNetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFRulesNetworkServiceTests.swift; sourceTree = "<group>"; };
+		0AD2D3CE2081AB26005BB2C8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0AD2D3D02081AB39005BB2C8 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		0AD2D3D22081AB70005BB2C8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		0AD2D3D42081AB84005BB2C8 /* GameFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFinishedViewController.swift; sourceTree = "<group>"; };
+		0AD2D3D62081ABA1005BB2C8 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		0AD2D3D82081ABAF005BB2C8 /* GameFinishedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFinishedViewModel.swift; sourceTree = "<group>"; };
+		0AD2D3DA2081BF04005BB2C8 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
 		7240881473E3C705A606C73A /* Pods-ConnectFour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectFour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectFour/Pods-ConnectFour.debug.xcconfig"; sourceTree = "<group>"; };
 		D553B909BA3B5A8CBEC6D0B3 /* Pods_ConnectFour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectFour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -237,6 +251,9 @@
 		0AD2D39A20819078005BB2C8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0AD2D3D62081ABA1005BB2C8 /* MenuViewModel.swift */,
+				0AD2D3D02081AB39005BB2C8 /* GameViewModel.swift */,
+				0AD2D3D82081ABAF005BB2C8 /* GameFinishedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -244,6 +261,9 @@
 		0AD2D39B20819078005BB2C8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0AD2D3D22081AB70005BB2C8 /* MenuViewController.swift */,
+				0AD2D3CE2081AB26005BB2C8 /* GameViewController.swift */,
+				0AD2D3D42081AB84005BB2C8 /* GameFinishedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +278,7 @@
 		0AD2D39D20819078005BB2C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0AD2D3DA2081BF04005BB2C8 /* GameBoardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,6 +505,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ConnectFour/Pods-ConnectFour-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AwesomeData/AwesomeData.framework",
+				"${BUILT_PRODUCTS_DIR}/AwesomeUIMagic/AwesomeUIMagic.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -492,6 +514,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeData.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeUIMagic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -524,15 +547,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD2D3D52081AB84005BB2C8 /* GameFinishedViewController.swift in Sources */,
+				0AD2D3D12081AB39005BB2C8 /* GameViewModel.swift in Sources */,
 				0AD2D3A720819A65005BB2C8 /* CFRules.swift in Sources */,
+				0AD2D3D72081ABA1005BB2C8 /* MenuViewModel.swift in Sources */,
 				0AD2D3A320819A50005BB2C8 /* CFColors.swift in Sources */,
+				0AD2D3DB2081BF04005BB2C8 /* GameBoardView.swift in Sources */,
 				0AD2D35F20818F91005BB2C8 /* AppDelegate.swift in Sources */,
+				0AD2D3D92081ABAF005BB2C8 /* GameFinishedViewModel.swift in Sources */,
 				0AD2D39F2081993B005BB2C8 /* CFConfigurations.swift in Sources */,
 				0AD2D3A920819C03005BB2C8 /* CFConfigurationsNetworkService.swift in Sources */,
 				0AD2D3C32081A73A005BB2C8 /* CFColorsNetworkService.swift in Sources */,
+				0AD2D3D32081AB70005BB2C8 /* MenuViewController.swift in Sources */,
 				0AD2D3A520819A5C005BB2C8 /* CFGame.swift in Sources */,
 				0AD2D3C72081A754005BB2C8 /* CFRulesNetworkService.swift in Sources */,
 				0AD2D3C52081A744005BB2C8 /* CFGameNetworkService.swift in Sources */,
+				0AD2D3CF2081AB26005BB2C8 /* GameViewController.swift in Sources */,
 				0AD2D3A120819975005BB2C8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,10 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = "ConnectFour/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -738,10 +765,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = "ConnectFour/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -757,11 +781,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -778,11 +798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -798,11 +814,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -818,11 +830,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
