@@ -57,14 +57,63 @@ class ConnectFourGameManagerTests: XCTestCase {
         XCTAssertTrue(connectFourGameManager.checkWinnerInRow(withPosition: CFPosition(rows: 2, columns: 4)))
     }
     
+    func test_DiagonalSequence_IsWinner() {
+        let connectFourGameManager = ConnectFourGameManager()
+        connectFourGameManager.game = gameMock
+        connectFourGameManager.player = .player1
+        connectFourGameManager.cellStatusMatrix = cellStatusMatrixMock
+        
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 0, columns: 0)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 1, columns: 1)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 2, columns: 2)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 3, columns: 3)))
+    }
+    
+    func test_DiagonalSequence_IsNotWinner() {
+        let connectFourGameManager = ConnectFourGameManager()
+        connectFourGameManager.game = gameMock
+        connectFourGameManager.player = .player1
+        connectFourGameManager.cellStatusMatrix = cellStatusMatrixMock
+        
+        XCTAssertTrue(!connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 5, columns: 5)))
+        XCTAssertTrue(!connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 4, columns: 4)))
+    }
+    
+    func test_MinValue_IsCorrect() {
+        let connectFourGameManager = ConnectFourGameManager()
+        connectFourGameManager.game = gameMock
+        connectFourGameManager.player = .player1
+        connectFourGameManager.cellStatusMatrix = cellStatusMatrixMock
+        
+        XCTAssertEqual(connectFourGameManager.minValue(0), 0)
+        XCTAssertEqual(connectFourGameManager.minValue(1), 0)
+        XCTAssertEqual(connectFourGameManager.minValue(2), 0)
+        XCTAssertEqual(connectFourGameManager.minValue(3), 0)
+        XCTAssertEqual(connectFourGameManager.minValue(4), 1)
+        XCTAssertEqual(connectFourGameManager.minValue(5), 2)
+    }
+    
+    func test_MaxValue_IsCorrect() {
+        let connectFourGameManager = ConnectFourGameManager()
+        connectFourGameManager.game = gameMock
+        connectFourGameManager.player = .player1
+        connectFourGameManager.cellStatusMatrix = cellStatusMatrixMock
+        
+        XCTAssertEqual(connectFourGameManager.maxValue(0, withMax: 7), 3)
+        XCTAssertEqual(connectFourGameManager.maxValue(1, withMax: 7), 4)
+        XCTAssertEqual(connectFourGameManager.maxValue(2, withMax: 7), 5)
+        XCTAssertEqual(connectFourGameManager.maxValue(3, withMax: 7), 6)
+        XCTAssertEqual(connectFourGameManager.maxValue(4, withMax: 7), 6)
+    }
+    
     fileprivate var cellStatusMatrixMock: [[GameBoardCellStatus]] {
        return [
-            [.empty, .empty, .empty, .empty, .empty, .empty],
-            [.empty, .empty, .player1, .player1, .player1, .player1],
-            [.empty, .player1, .player1, .player2, .player1, .player1],
-            [.player1, .empty, .player1, .empty, .empty, .empty],
-            [.player1, .empty, .player1, .empty, .empty, .empty],
             [.player1, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .player1, .player1, .player1, .player1, .player1],
+            [.empty, .player1, .player1, .player2, .player1, .player1],
+            [.player1, .empty, .player1, .player1, .empty, .empty],
+            [.player1, .empty, .player1, .empty, .player2, .empty],
+            [.player1, .empty, .empty, .empty, .empty, .player1],
             [.player1, .empty, .empty, .empty, .empty, .empty]
         ]
     }

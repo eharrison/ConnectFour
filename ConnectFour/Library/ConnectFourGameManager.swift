@@ -74,37 +74,11 @@ class ConnectFourGameManager: NSObject {
         if checkWinnerInRow(withPosition: position) {
             return true
         }
-    
-        return false
-    }
-    
-    // MARK: - ROW CHECK
-    
-    public func checkWinnerInRow(withPosition position: CFPosition) -> Bool {
-        guard let game = game else {
-            return false
+        
+        if checkWinnerInDiagonal(withPosition: position) {
+            return true
         }
-        
-        // set range for searching winner
-        let minColumn = position.columns - numberToWin >= 0 ? position.columns - numberToWin : 0
-        let maxColumn = position.columns + numberToWin < game.column ? position.columns + numberToWin : game.column - 1
-        
-        var numberOfSequencials = 0
-        
-        // check for sequential occurences of checkers of current player
-        for column in minColumn...maxColumn {
-            if cellStatusMatrix[column][position.rows] == player {
-                numberOfSequencials += 1
-                
-                // return true in case sequence is greater or equals to [numberToWin]
-                if numberOfSequencials >= numberToWin {
-                    return true
-                }
-            } else {
-                numberOfSequencials = 0
-            }
-        }
-        
+    
         return false
     }
     
@@ -129,6 +103,95 @@ class ConnectFourGameManager: NSObject {
         }
         
         return false
+    }
+    
+    // MARK: - ROW CHECK
+    
+    public func checkWinnerInRow(withPosition position: CFPosition) -> Bool {
+        guard let game = game else {
+            return false
+        }
+        
+        // set range for searching winner
+        let minColumn = minValue(position.columns)
+        let maxColumn = maxValue(position.columns, withMax: game.column)
+        
+        var numberOfSequencials = 0
+        
+        // check for sequential occurences of checkers of current player
+        for column in minColumn...maxColumn {
+            if cellStatusMatrix[column][position.rows] == player {
+                numberOfSequencials += 1
+                
+                // return true in case sequence is greater or equals to [numberToWin]
+                if numberOfSequencials >= numberToWin {
+                    return true
+                }
+            } else {
+                numberOfSequencials = 0
+            }
+        }
+        
+        return false
+    }
+    
+    // MARK: - DIAGONAL CHECK
+    
+    public func checkWinnerInDiagonal(withPosition position: CFPosition) -> Bool {
+        guard let game = game else {
+            return false
+        }
+        
+        // set range for searching winner
+        let minColumn = minValue(position.columns)
+        let maxColumn = maxValue(position.columns, withMax: game.column)
+        let minRow = minValue(position.rows)
+        let maxRow = maxValue(position.rows, withMax: game.rows)
+        
+        var numberOfSequencials = 0
+        
+        var row = minRow
+        var column = minColumn
+        
+        // check for sequential occurences of checkers of current player
+        while row < maxRow && column <= maxColumn {
+            if cellStatusMatrix[column][row] == player {
+                numberOfSequencials += 1
+                
+                // return true in case sequence is greater or equals to [numberToWin]
+                if numberOfSequencials >= numberToWin {
+                    return true
+                }
+            } else {
+                numberOfSequencials = 0
+            }
+            
+            row = row+1 <= maxRow ? row+1 : maxRow
+            column = column+1 <= maxColumn ? column+1 : maxColumn
+        }
+        
+        
+        return false
+    }
+    
+    // Returns the mininum value based on number given, considering [numberToWin] and that it has to be greater than 0
+    func minValue(_ number: Int) -> Int {
+        let min = number - numberToWin + 1
+        if min >= 0 {
+            return min
+        }
+        
+        return 0
+    }
+    
+    // Returns the maximum value based on number given, considering [numberToWin] and that it has to be less than Max
+    func maxValue(_ number: Int, withMax maxNumber: Int) -> Int {
+        let max = number + numberToWin - 1
+        if max < maxNumber {
+            return max
+        }
+        
+        return maxNumber-1
     }
     
 }

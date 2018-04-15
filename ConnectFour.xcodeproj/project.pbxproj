@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0AD2D35F20818F91005BB2C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D35E20818F91005BB2C8 /* AppDelegate.swift */; };
-		0AD2D37420818F92005BB2C8 /* ConnectFourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D37320818F92005BB2C8 /* ConnectFourTests.swift */; };
 		0AD2D37F20818F92005BB2C8 /* ConnectFourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D37E20818F92005BB2C8 /* ConnectFourUITests.swift */; };
 		0AD2D39720819025005BB2C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D38E20819025005BB2C8 /* Assets.xcassets */; };
 		0AD2D39820819025005BB2C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D39220819025005BB2C8 /* LaunchScreen.storyboard */; };
@@ -76,7 +75,6 @@
 		0AD2D35E20818F91005BB2C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD2D36A20818F92005BB2C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AD2D36F20818F92005BB2C8 /* ConnectFourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AD2D37320818F92005BB2C8 /* ConnectFourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourTests.swift; sourceTree = "<group>"; };
 		0AD2D37520818F92005BB2C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AD2D37A20818F92005BB2C8 /* ConnectFourUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD2D37E20818F92005BB2C8 /* ConnectFourUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourUITests.swift; sourceTree = "<group>"; };
@@ -189,11 +187,7 @@
 		0AD2D37220818F92005BB2C8 /* ConnectFourTests */ = {
 			isa = PBXGroup;
 			children = (
-				0AD2D37320818F92005BB2C8 /* ConnectFourTests.swift */,
-				0AD2D3EE2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift */,
-				0AD2D3AB20819ED5005BB2C8 /* Network Services */,
-				0AD2D3B02081A356005BB2C8 /* Model */,
-				0AD2D3B12081A37C005BB2C8 /* JSON Templates */,
+				0AD2D3F0208302CD005BB2C8 /* Library */,
 				0AD2D37520818F92005BB2C8 /* Info.plist */,
 			);
 			path = ConnectFourTests;
@@ -366,6 +360,17 @@
 				0AD2D3E62081DBF9005BB2C8 /* CGSizeExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0AD2D3F0208302CD005BB2C8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				0AD2D3EE2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift */,
+				0AD2D3AB20819ED5005BB2C8 /* Network Services */,
+				0AD2D3B02081A356005BB2C8 /* Model */,
+				0AD2D3B12081A37C005BB2C8 /* JSON Templates */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		7B1984ABECEB599B9C51FB10 /* Pods */ = {
@@ -627,7 +632,6 @@
 				0AD2D3BF2081A585005BB2C8 /* CFGameTests.swift in Sources */,
 				0AD2D3BD2081A57A005BB2C8 /* CFColorsTests.swift in Sources */,
 				0AD2D3BB2081A4CB005BB2C8 /* MockJSONLoader.swift in Sources */,
-				0AD2D37420818F92005BB2C8 /* ConnectFourTests.swift in Sources */,
 				0AD2D3C92081A7F2005BB2C8 /* CFColorsNetworkServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
