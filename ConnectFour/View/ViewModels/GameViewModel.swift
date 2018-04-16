@@ -17,6 +17,10 @@ public class GameViewModel {
                 return
             }
             
+            // get player status from firebase
+            
+            
+            
             completion(game)
         }
     }
