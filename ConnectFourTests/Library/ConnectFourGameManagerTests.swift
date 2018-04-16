@@ -67,6 +67,16 @@ class ConnectFourGameManagerTests: XCTestCase {
         XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 1, columns: 1)))
         XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 2, columns: 2)))
         XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 3, columns: 3)))
+        
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 2, columns: 0)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 3, columns: 1)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 4, columns: 2)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 5, columns: 3)))
+        
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 5, columns: 1)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 4, columns: 2)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 3, columns: 3)))
+        XCTAssertTrue(connectFourGameManager.checkWinnerInDiagonal(withPosition: CFPosition(rows: 2, columns: 4)))
     }
     
     func test_DiagonalSequence_IsNotWinner() {
@@ -108,10 +118,10 @@ class ConnectFourGameManagerTests: XCTestCase {
     
     fileprivate var cellStatusMatrixMock: [[GameBoardCellStatus]] {
        return [
-            [.player1, .empty, .empty, .empty, .empty, .empty],
+            [.player1, .empty, .player1, .empty, .empty, .empty],
             [.empty, .player1, .player1, .player1, .player1, .player1],
             [.empty, .player1, .player1, .player2, .player1, .player1],
-            [.player1, .empty, .player1, .player1, .empty, .empty],
+            [.player1, .empty, .player1, .player1, .empty, .player1],
             [.player1, .empty, .player1, .empty, .player2, .empty],
             [.player1, .empty, .empty, .empty, .empty, .player1],
             [.player1, .empty, .empty, .empty, .empty, .empty]

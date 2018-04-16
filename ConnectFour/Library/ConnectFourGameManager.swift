@@ -145,31 +145,53 @@ class ConnectFourGameManager: NSObject {
         // set range for searching winner
         let minColumn = minValue(position.columns)
         let maxColumn = maxValue(position.columns, withMax: game.column)
-        let minRow = minValue(position.rows)
-        let maxRow = maxValue(position.rows, withMax: game.rows)
         
         var numberOfSequencials = 0
         
-        var row = minRow
-        var column = minColumn
-        
-        // check for sequential occurences of checkers of current player
-        while row < maxRow && column <= maxColumn {
-            if cellStatusMatrix[column][row] == player {
-                numberOfSequencials += 1
-                
-                // return true in case sequence is greater or equals to [numberToWin]
-                if numberOfSequencials >= numberToWin {
-                    return true
-                }
-            } else {
-                numberOfSequencials = 0
+        func checkDiagonal(rightToLeft: Bool) -> Bool {
+            var row = position.rows - (rightToLeft ? (position.columns-minColumn) : (maxColumn-position.columns))
+            if row < 0 {
+                row = 0
+            } else if row >= game.rows {
+                row = game.rows - 1
             }
             
-            row = row+1 <= maxRow ? row+1 : maxRow
-            column = column+1 <= maxColumn ? column+1 : maxColumn
+            var column = rightToLeft ? minColumn : maxColumn
+            
+            // check for sequential occurences of checkers of current player
+            while (rightToLeft && column <= maxColumn) ||
+                (!rightToLeft && column >= minColumn) {
+                if cellStatusMatrix[column][row] == player {
+                    numberOfSequencials += 1
+                    
+                    // return true in case sequence is greater or equals to [numberToWin]
+                    if numberOfSequencials >= numberToWin {
+                        return true
+                    }
+                } else {
+                    numberOfSequencials = 0
+                }
+                
+                row += 1
+                if row >= game.rows {
+                    row = game.rows - 1
+                }
+                
+                column += rightToLeft ? 1 : -1
+            }
+            
+            return false
         }
         
+        // check from right to left
+        if checkDiagonal(rightToLeft: true) {
+            return true
+        }
+        
+        // check from left to right
+        if checkDiagonal(rightToLeft: false) {
+            return true
+        }
         
         return false
     }
