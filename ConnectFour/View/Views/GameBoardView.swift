@@ -71,10 +71,10 @@ extension GameBoardView {
         
         ConnectFourGameManager.shared.handleTurn(withColumn: position.columns) { (position, size, isWinner) in
             // add checker
-            self.addGameBoardChecker(withPosition: position, size: size)
-            
-            if isWinner {
-                self.winCallback?()
+            self.addGameBoardChecker(withPosition: position, size: size) {
+                if isWinner {
+                    self.winCallback?()
+                }
             }
         }
     }

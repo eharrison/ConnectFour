@@ -45,7 +45,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="o4l-O5-GsB" kind="show" id="1Q4-YQ-bui"/>
+                                    <segue destination="o4l-O5-GsB" kind="show" animates="NO" id="1Q4-YQ-bui"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -125,7 +125,7 @@
                         <outlet property="gameBoardView" destination="4yR-aM-Rsn" id="aF2-Ag-Rx4"/>
                         <outlet property="playerLabel" destination="pgf-An-IAd" id="QfG-Xh-cts"/>
                         <outlet property="statusLabel" destination="VdD-ba-qvy" id="We2-ZZ-G4H"/>
-                        <segue destination="TJK-gS-cW0" kind="show" identifier="finishedSegue" id="uNp-sQ-VpI"/>
+                        <segue destination="TJK-gS-cW0" kind="show" identifier="finishedSegue" animates="NO" id="uNp-sQ-VpI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp9-29-Tb9" userLabel="First Responder" sceneMemberID="firstResponder"/>

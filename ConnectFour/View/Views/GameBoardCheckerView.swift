@@ -14,7 +14,26 @@ class GameBoardCheckerView: GameBoardStandardCellView {
     override func configure(withPosition position: CFPosition, size cellSize: CGSize) {
         super.configure(withPosition: position, size: cellSize)
         
+        isHidden = true
+        
         mainView.layer.cornerRadius = cellSize.width/2
+    }
+    
+    func show(animated: Bool, completion: (() -> Void)? = nil) {
+        isHidden = false
+        
+        if animated {
+            let destinationFrame = frame
+            frame.origin.y = -destinationFrame.size.height
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.frame = destinationFrame
+            }) { (_) in
+                completion?()
+            }
+        } else {
+            completion?()
+        }
     }
 }
 
@@ -30,10 +49,11 @@ extension GameBoardCheckerView {
 
 extension GameBoardView {
     
-    func addGameBoardChecker(withPosition position: CFPosition, size: CFPosition) {
+    func addGameBoardChecker(withPosition position: CFPosition, size: CFPosition, animated: Bool = true, completion: (() -> Void)? = nil) {
         let gameBoardCheckerView = GameBoardCheckerView.newInstance
         
         gameBoardCheckerView.configure(withPosition: position, size: frame.size.cellSize(withBoardSize: size))
+        gameBoardCheckerView.show(animated: animated, completion: completion)
         
         addSubview(gameBoardCheckerView)
     }

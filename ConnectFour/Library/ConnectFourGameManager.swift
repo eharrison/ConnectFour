@@ -47,9 +47,10 @@ class ConnectFourGameManager: NSObject {
         var currentRow = game.rows-1
         
         // loops to matrix to see where we can add a checker
-        while positionToAdd == nil, currentRow >= 0 {
+        while currentRow >= 0 {
             if cellStatusMatrix[column][currentRow] == .empty {
                 positionToAdd = CFPosition(rows: currentRow, columns: column)
+                break
             }
             
             currentRow -= 1
