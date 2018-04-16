@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="width" constant="190" id="3Aq-CC-Q9x"/>
                                     <constraint firstAttribute="height" constant="48" id="BxW-Ns-uvk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="21"/>
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -157,7 +157,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="fk9-ae-T1q" kind="unwind" unwindAction="returnToMenu:" id="bRH-0s-Mfc"/>
+                                    <segue destination="fk9-ae-T1q" kind="unwind" animates="NO" unwindAction="returnToMenu:" id="bRH-0s-Mfc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBz-m0-0Ch">

@@ -12,7 +12,7 @@ class GameBoardCheckerView: GameBoardStandardCellView {
     @IBOutlet weak var mainView: UIView!
     
     func configure(withPosition position: CFPosition, size cellSize: CGSize, color: UIColor?) {
-        super.configure(withPosition: position, size: cellSize)
+        configure(withPosition: position, size: cellSize)
         
         isHidden = true
         
@@ -57,6 +57,7 @@ extension GameBoardView {
         gameBoardCheckerView.show(animated: animated, completion: completion)
         
         addSubview(gameBoardCheckerView)
+        sendSubview(toBack: gameBoardCheckerView)
     }
     
     func clearGameBoardCheckers() {

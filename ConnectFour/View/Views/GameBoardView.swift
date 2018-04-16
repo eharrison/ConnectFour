@@ -14,6 +14,7 @@ public class GameBoardView: UIView {
     
     var winCallback: WinCallback?
     var gameManager: ConnectFourGameManager?
+    var lastOrientation: UIDeviceOrientation?
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +28,10 @@ public class GameBoardView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         
-        refreshBoard()
+        if UIDevice.current.orientation != lastOrientation {
+            refreshBoard()
+        }
+        lastOrientation = UIDevice.current.orientation
     }
     
     public func configure(withGame game: CFGame) {
@@ -40,6 +44,7 @@ public class GameBoardView: UIView {
     
     fileprivate func refreshBoard() {
         clearGameBoardCells()
+        clearGameBoardCheckers()
         
         guard let game = gameManager?.game else {
             return
@@ -48,7 +53,14 @@ public class GameBoardView: UIView {
         // add cells to board
         for row in 0..<game.rows {
             for column in 0..<game.column {
-                addGameBoardCell(withPosition: CFPosition(rows: row, columns: column), size: CFPosition(rows: game.rows, columns: game.column))
+                let position = CFPosition(rows: row, columns: column)
+                let size = CFPosition(rows: game.rows, columns: game.column)
+                
+                if gameManager?.cellStatusMatrix[column][row] != .empty {
+                    _ = self.addGameBoardChecker(withPosition: position, size: size, color: self.gameManager?.colorForPlayer, animated: false)
+                }
+                
+                addGameBoardCell(withPosition: position, size: size)
             }
         }
     }

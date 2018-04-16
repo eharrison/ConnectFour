@@ -34,6 +34,7 @@ class FirebaseHelper {
     static func game(_ completion:@escaping () -> Void) {
         let database = Database.database().reference()
         _ = database.observe(.value, with: { (snapshot) in
+            print("\(snapshot)")
             
 //            var messages = [Message]()
 //
