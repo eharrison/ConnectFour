@@ -6,7 +6,7 @@
 //  Copyright © 2018 It's Day Off. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum GameBoardCellStatus: Int {
     case empty
@@ -19,6 +19,17 @@ class ConnectFourGameManager: NSObject {
     public var game: CFGame?
     public var player: GameBoardCellStatus = .player1
     public var cellStatusMatrix = [[GameBoardCellStatus]]()
+    
+    public var colorForPlayer: UIColor? {
+        switch player {
+        case .player1:
+            return game?.color1.uiColor
+        case .player2:
+            return game?.color2.uiColor
+        default:
+            return nil
+        }
+    }
     
     public func configure(withGame game: CFGame) {
         self.game = game

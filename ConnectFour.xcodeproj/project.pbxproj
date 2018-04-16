@@ -51,6 +51,7 @@
 		0AD2D3EF2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3EE2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift */; };
 		0AD2D3F220849CA0005BB2C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D3F120849CA0005BB2C8 /* GoogleService-Info.plist */; };
 		0AD2D3F420849CD8005BB2C8 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3F320849CD8005BB2C8 /* FirebaseHelper.swift */; };
+		0AD2D3F72084E26E005BB2C8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D3F62084E26E005BB2C8 /* UIColorExtensions.swift */; };
 		4290937E8CFCA2C812462E3F /* Pods_ConnectFourTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8900C20543177B936AE3EB /* Pods_ConnectFourTests.framework */; };
 		7BF3A87E6DF87C7F0C0DE692 /* Pods_ConnectFour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D553B909BA3B5A8CBEC6D0B3 /* Pods_ConnectFour.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,7 @@
 		0AD2D3EE2081F56B005BB2C8 /* ConnectFourGameManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourGameManagerTests.swift; sourceTree = "<group>"; };
 		0AD2D3F120849CA0005BB2C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0AD2D3F320849CD8005BB2C8 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		0AD2D3F62084E26E005BB2C8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		1D8900C20543177B936AE3EB /* Pods_ConnectFourTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectFourTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7240881473E3C705A606C73A /* Pods-ConnectFour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectFour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectFour/Pods-ConnectFour.debug.xcconfig"; sourceTree = "<group>"; };
 		7DE2AA29147B2AF61DEE8F27 /* Pods-ConnectFourTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectFourTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectFourTests/Pods-ConnectFourTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				0AD2D3E62081DBF9005BB2C8 /* CGSizeExtensions.swift */,
+				0AD2D3F62084E26E005BB2C8 /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				0AD2D39F2081993B005BB2C8 /* CFConfigurations.swift in Sources */,
 				0AD2D3A920819C03005BB2C8 /* CFConfigurationsNetworkService.swift in Sources */,
 				0AD2D3C32081A73A005BB2C8 /* CFColorsNetworkService.swift in Sources */,
+				0AD2D3F72084E26E005BB2C8 /* UIColorExtensions.swift in Sources */,
 				0AD2D3E02081C790005BB2C8 /* GameBoardCellView.swift in Sources */,
 				0AD2D3D32081AB70005BB2C8 /* MenuViewController.swift in Sources */,
 				0AD2D3A520819A5C005BB2C8 /* CFGame.swift in Sources */,
@@ -881,7 +885,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFour/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -897,7 +904,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFour/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -914,7 +924,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -932,7 +946,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -948,7 +966,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -964,7 +986,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2DSCP4F3H;
 				INFOPLIST_FILE = ConnectFourUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.itsdayoff.ConnectFourUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

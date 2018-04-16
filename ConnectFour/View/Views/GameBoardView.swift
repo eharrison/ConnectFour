@@ -73,7 +73,7 @@ extension GameBoardView {
         
         gameManager?.handleTurn(withColumn: position.columns) { (position, size, isWinner) in
             // add checker
-            self.addGameBoardChecker(withPosition: position, size: size) {
+            self.addGameBoardChecker(withPosition: position, size: size, color: self.gameManager?.colorForPlayer) {
                 if isWinner {
                     self.winCallback?()
                 }

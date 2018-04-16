@@ -11,12 +11,13 @@ import UIKit
 class GameBoardCheckerView: GameBoardStandardCellView {
     @IBOutlet weak var mainView: UIView!
     
-    override func configure(withPosition position: CFPosition, size cellSize: CGSize) {
+    func configure(withPosition position: CFPosition, size cellSize: CGSize, color: UIColor?) {
         super.configure(withPosition: position, size: cellSize)
         
         isHidden = true
         
-        mainView.layer.cornerRadius = cellSize.width/2
+        mainView.layer.cornerRadius = (cellSize.width-20)/2
+        mainView.backgroundColor = color
     }
     
     func show(animated: Bool, completion: (() -> Void)? = nil) {
@@ -49,10 +50,10 @@ extension GameBoardCheckerView {
 
 extension GameBoardView {
     
-    func addGameBoardChecker(withPosition position: CFPosition, size: CFPosition, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func addGameBoardChecker(withPosition position: CFPosition, size: CFPosition, color: UIColor?, animated: Bool = true, completion: (() -> Void)? = nil) {
         let gameBoardCheckerView = GameBoardCheckerView.newInstance
         
-        gameBoardCheckerView.configure(withPosition: position, size: frame.size.cellSize(withBoardSize: size))
+        gameBoardCheckerView.configure(withPosition: position, size: frame.size.cellSize(withBoardSize: size), color: color)
         gameBoardCheckerView.show(animated: animated, completion: completion)
         
         addSubview(gameBoardCheckerView)
