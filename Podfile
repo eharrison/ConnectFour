@@ -21,7 +21,13 @@ end
 # ====== iOS App =======
 
 target 'ConnectFour' do
-      shared_data_pod
-      shared_ui_pod
-      shared_firebase_pod
+    shared_data_pod
+    shared_ui_pod
+    shared_firebase_pod
+end
+
+target 'ConnectFourTests' do
+    shared_data_pod
+    shared_ui_pod
+    shared_firebase_pod
 end

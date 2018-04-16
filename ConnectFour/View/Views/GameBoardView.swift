@@ -13,6 +13,7 @@ typealias WinCallback = () -> Void
 public class GameBoardView: UIView {
     
     var winCallback: WinCallback?
+    var gameManager: ConnectFourGameManager?
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +31,8 @@ public class GameBoardView: UIView {
     }
     
     public func configure(withGame game: CFGame) {
-        ConnectFourGameManager.shared.configure(withGame: game)
+        gameManager = ConnectFourGameManager()
+        gameManager?.configure(withGame: game)
         
         // refresh board
         refreshBoard()
@@ -39,7 +41,7 @@ public class GameBoardView: UIView {
     fileprivate func refreshBoard() {
         clearGameBoardCells()
         
-        guard let game = ConnectFourGameManager.shared.game else {
+        guard let game = gameManager?.game else {
             return
         }
         
@@ -69,7 +71,7 @@ extension GameBoardView {
             return
         }
         
-        ConnectFourGameManager.shared.handleTurn(withColumn: position.columns) { (position, size, isWinner) in
+        gameManager?.handleTurn(withColumn: position.columns) { (position, size, isWinner) in
             // add checker
             self.addGameBoardChecker(withPosition: position, size: size) {
                 if isWinner {

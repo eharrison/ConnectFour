@@ -16,8 +16,6 @@ enum GameBoardCellStatus: Int {
 
 class ConnectFourGameManager: NSObject {
     
-    public static var shared = ConnectFourGameManager()
-    
     public var game: CFGame?
     public var player: GameBoardCellStatus = .player1
     public var cellStatusMatrix = [[GameBoardCellStatus]]()
