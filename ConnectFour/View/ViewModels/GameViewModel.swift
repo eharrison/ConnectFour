@@ -8,18 +8,16 @@
 
 import Foundation
 
-public class GameViewModel {
+class GameViewModel {
     
-    public func refreshGame(_ completion: @escaping (CFGame) -> Void) {
+    var player: GameBoardPlayer = .player1
+    
+    func refreshGame(_ completion: @escaping (CFGame) -> Void) {
         CFGameNetworkService.shared.fetchGame { (games) in
             guard let game = games.first else {
                 print("Couldn't fetch game...")
                 return
             }
-            
-            // get player status from firebase
-            
-            
             
             completion(game)
         }

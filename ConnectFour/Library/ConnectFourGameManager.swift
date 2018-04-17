@@ -8,17 +8,31 @@
 
 import UIKit
 
-enum GameBoardCellStatus: Int {
+enum GameBoardPlayer: Int {
     case empty
     case player1
     case player2
 }
 
+typealias RefreshCallback = () -> Void
+
 class ConnectFourGameManager: NSObject {
     
     public var game: CFGame?
-    public var player: GameBoardCellStatus = .player1
-    public var cellStatusMatrix = [[GameBoardCellStatus]]()
+    public var player: GameBoardPlayer = .player1
+    public var cellStatusMatrix = [[GameBoardPlayer]]()
+    public var isMyTurn: Bool = true
+    
+    public var nameForPlayer: String? {
+        switch player {
+        case .player1:
+            return game?.name1
+        case .player2:
+            return game?.name2
+        default:
+            return nil
+        }
+    }
     
     public var colorForPlayer: UIColor? {
         switch player {
@@ -31,11 +45,30 @@ class ConnectFourGameManager: NSObject {
         }
     }
     
+    public static func cleanStatusMatrix(game: CFGame) -> [[GameBoardPlayer]] {
+        return Array(repeating: Array(repeating: .empty, count: game.rows), count: game.column)
+    }
+    
+    // Callbacks
+    var shouldRefreshCallback: RefreshCallback?
+    
     public func configure(withGame game: CFGame) {
         self.game = game
         
         // restart CellStatusMatrix
         cleanupMatrix()
+        
+        // start listening to firebase
+        FirebaseHelper.game(game: game) { (statusMatrix, currentPlayer, winner) in
+            self.isMyTurn = currentPlayer == self.player
+            self.cellStatusMatrix = statusMatrix
+            self.shouldRefreshCallback?()
+            
+            if let winner = winner {
+                print("Winner: \(winner)")
+                // game is won
+            }
+        }
     }
     
     func cleanupMatrix() {
@@ -44,10 +77,14 @@ class ConnectFourGameManager: NSObject {
             return
         }
         
-        cellStatusMatrix = Array(repeating: Array(repeating: .empty, count: game.rows), count: game.column)
+        cellStatusMatrix = ConnectFourGameManager.cleanStatusMatrix(game: game)
     }
     
     func handleTurn(withColumn column: Int, completion: @escaping (_ position: CFPosition, _ size: CFPosition, _ won: Bool) -> Void) {
+        guard isMyTurn else {
+            return
+        }
+        
         guard let game = game else {
             return
         }
@@ -73,7 +110,16 @@ class ConnectFourGameManager: NSObject {
         // add the player checker to matrix
         cellStatusMatrix[position.columns][position.rows] = player
         
-        completion(position, CFPosition(rows: game.rows, columns: game.column), checkWinner(withPosition: position))
+        // check for winner
+        let weHaveAWinner = checkWinner(withPosition: position)
+        
+        // update firebase
+        FirebaseHelper.handleTurn(game: game, statusMatrix: cellStatusMatrix, player: player, winner: weHaveAWinner ? player : nil)
+        
+        // disable turn
+        isMyTurn = false
+        
+        completion(position, CFPosition(rows: game.rows, columns: game.column), weHaveAWinner)
     }
     
     public func checkWinner(withPosition position: CFPosition) -> Bool {

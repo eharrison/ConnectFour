@@ -10,22 +10,22 @@ import UIKit
 
 typealias WinCallback = () -> Void
 
-public class GameBoardView: UIView {
+class GameBoardView: UIView {
     
     var winCallback: WinCallback?
     var gameManager: ConnectFourGameManager?
     var lastOrientation: UIDeviceOrientation?
     
-    override public func awakeFromNib() {
+    var shouldRefreshCallback: RefreshCallback?
+    
+    override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.backgroundColor = .white
         
         // add observers to actions
         addObservers()
     }
     
-    public override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         
         if UIDevice.current.orientation != lastOrientation {
@@ -34,12 +34,19 @@ public class GameBoardView: UIView {
         lastOrientation = UIDevice.current.orientation
     }
     
-    public func configure(withGame game: CFGame) {
+    func configure(withGame game: CFGame, player: GameBoardPlayer) {
         gameManager = ConnectFourGameManager()
         gameManager?.configure(withGame: game)
+        gameManager?.player = player
         
         // refresh board
         refreshBoard()
+        
+        // add refresh callback
+        gameManager?.shouldRefreshCallback = {
+            self.refreshBoard()
+            self.shouldRefreshCallback?()
+        }
     }
     
     fileprivate func refreshBoard() {

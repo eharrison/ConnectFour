@@ -116,7 +116,7 @@ class ConnectFourGameManagerTests: XCTestCase {
         XCTAssertEqual(connectFourGameManager.maxValue(4, withMax: 7), 6)
     }
     
-    fileprivate var cellStatusMatrixMock: [[GameBoardCellStatus]] {
+    fileprivate var cellStatusMatrixMock: [[GameBoardStatus]] {
        return [
             [.player1, .empty, .player1, .empty, .empty, .empty],
             [.empty, .player1, .player1, .player1, .player1, .player1],
@@ -142,7 +142,7 @@ extension ConnectFourGameManagerTests {
             
         }
         
-        var cellStatusMatrixMock: [[GameBoardCellStatus]] {
+        var cellStatusMatrixMock: [[GameBoardStatus]] {
             return [
                 [.empty, ]
             ]
