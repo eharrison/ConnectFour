@@ -3,3 +3,8 @@
 "status_turn_opponent" = "Wait for your opponent to make his/her move";
 "loading_player" = "Loading Player";
 "play_as" = "Play as";
+
+"finish_congratulations" = "Congratulations!";
+"finish_toobad" = "Too bad...";
+"finish_won" = "You won!";
+"finish_lost" = "You lose. Better luck next time!";

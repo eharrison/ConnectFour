@@ -10,4 +10,7 @@ import Foundation
 
 public class GameFinishedViewModel {
     
+    var won = false
+    var game: CFGame?
+    
 }

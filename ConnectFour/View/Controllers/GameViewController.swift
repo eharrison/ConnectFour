@@ -22,11 +22,11 @@ class GameViewController: UIViewController {
         statusLabel.text = ""
         playerLabel.text = ""
         
-        gameBoardView.winCallback = {
-            self.performSegue(withIdentifier: "finishedSegue", sender: self)
-        }
         gameBoardView.shouldRefreshCallback = {
             self.statusLabel.text = self.gameBoardView.gameManager?.isMyTurn ?? false ? "status_turn_yours".localized : "status_turn_opponent".localized
+        }
+        gameBoardView.gameFinishedCallback = { (won) in
+            self.performSegue(withIdentifier: "finishedSegue", sender: won)
         }
     }
     
@@ -40,6 +40,15 @@ class GameViewController: UIViewController {
             self.gameBoardView.configure(withGame: game, player: self.gameViewModel.player)
             self.playerLabel.text = self.gameViewModel.player == .player1 ? game.name1 : game.name2
             self.playerLabel.textColor = self.gameViewModel.player == .player1 ? game.color1.uiColor : game.color2.uiColor
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? GameFinishedViewController {
+            viewController.gameFinishedViewModel.won = (sender as? Bool) ?? false
+            viewController.gameFinishedViewModel.game = gameBoardView.gameManager?.game
         }
     }
 }

@@ -17,10 +17,18 @@ class FirebaseHelper {
         FirebaseApp.configure()
     }
     
-    static func handleTurn(game: CFGame?, statusMatrix: [[GameBoardPlayer]], player: GameBoardPlayer, winner: GameBoardPlayer?) {
+    static func restart(game: CFGame?) {
+        guard let game = game else {
+            return
+        }
+        
+        handleTurn(game: game, statusMatrix: ConnectFourGameManager.cleanStatusMatrix(game: game), player: nil, winner: nil)
+    }
+    
+    static func handleTurn(game: CFGame?, statusMatrix: [[GameBoardPlayer]], player: GameBoardPlayer?, winner: GameBoardPlayer?) {
         var dictionary = [String: Any]()
         dictionary[firKey(.currentTurn)] = player == .player1 ? GameBoardPlayer.player2.rawValue : GameBoardPlayer.player1.rawValue
-        dictionary[firKey(.winner)] = winner
+        dictionary[firKey(.winner)] = winner?.rawValue
         
         // convert status matrix to dictionary
         dictionary[firKey(.statusMatrix)] = convertToDictionary(statusMatrix: statusMatrix)

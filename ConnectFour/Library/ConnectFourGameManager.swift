@@ -15,6 +15,7 @@ enum GameBoardPlayer: Int {
 }
 
 typealias RefreshCallback = () -> Void
+typealias GameFinishedCallback = (Bool) -> Void
 
 class ConnectFourGameManager: NSObject {
     
@@ -34,7 +35,11 @@ class ConnectFourGameManager: NSObject {
         }
     }
     
-    public var colorForPlayer: UIColor? {
+    public func colorForPlayer(_ player: GameBoardPlayer?) -> UIColor? {
+        guard let player = player else {
+            return nil
+        }
+        
         switch player {
         case .player1:
             return game?.color1.uiColor
@@ -51,6 +56,7 @@ class ConnectFourGameManager: NSObject {
     
     // Callbacks
     var shouldRefreshCallback: RefreshCallback?
+    var gameFinishedCallback: GameFinishedCallback?
     
     public func configure(withGame game: CFGame) {
         self.game = game
@@ -67,6 +73,7 @@ class ConnectFourGameManager: NSObject {
             if let winner = winner {
                 print("Winner: \(winner)")
                 // game is won
+                self.gameFinishedCallback?(winner == self.player)
             }
         }
     }

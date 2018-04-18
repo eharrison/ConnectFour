@@ -132,6 +132,20 @@
                                 <color key="textColor" red="1" green="0.020169161371428653" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBo-0i-JGL">
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VdE-jQ-INg"/>
+                                    <constraint firstAttribute="width" constant="50" id="sYA-iM-1Gq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Byi-1q-eq7" kind="unwind" unwindAction="returnToMenu:" id="ntX-m0-WgW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -140,11 +154,13 @@
                             <constraint firstItem="VdD-ba-qvy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4yR-aM-Rsn" secondAttribute="bottom" constant="20" id="5Rw-EY-XsB"/>
                             <constraint firstItem="w3X-fx-6Ur" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4yR-aM-Rsn" secondAttribute="trailing" constant="20" id="7AN-mn-y9W"/>
                             <constraint firstItem="pgf-An-IAd" firstAttribute="top" secondItem="w3X-fx-6Ur" secondAttribute="top" constant="20" id="Atl-ut-p6O"/>
+                            <constraint firstItem="BBo-0i-JGL" firstAttribute="leading" secondItem="w3X-fx-6Ur" secondAttribute="leading" constant="20" id="FWe-aa-H6G"/>
                             <constraint firstItem="w3X-fx-6Ur" firstAttribute="trailing" secondItem="VdD-ba-qvy" secondAttribute="trailing" constant="20" id="FiC-G7-YDS"/>
                             <constraint firstItem="4yR-aM-Rsn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pgf-An-IAd" secondAttribute="bottom" constant="20" id="GrL-xl-S1e"/>
                             <constraint firstItem="VdD-ba-qvy" firstAttribute="leading" secondItem="w3X-fx-6Ur" secondAttribute="leading" constant="20" id="Gxa-Lk-ka2"/>
                             <constraint firstItem="4yR-aM-Rsn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w3X-fx-6Ur" secondAttribute="leading" constant="20" id="LzA-A6-W40"/>
                             <constraint firstItem="4yR-aM-Rsn" firstAttribute="centerX" secondItem="dEn-P2-HG3" secondAttribute="centerX" id="MBq-eE-xmG"/>
+                            <constraint firstItem="BBo-0i-JGL" firstAttribute="top" secondItem="w3X-fx-6Ur" secondAttribute="top" constant="20" id="OWc-ur-TBm"/>
                             <constraint firstItem="w3X-fx-6Ur" firstAttribute="trailing" secondItem="pgf-An-IAd" secondAttribute="trailing" constant="16" id="Qfd-ey-Sge"/>
                             <constraint firstItem="pgf-An-IAd" firstAttribute="leading" secondItem="w3X-fx-6Ur" secondAttribute="leading" constant="24" id="jFf-hB-AeZ"/>
                             <constraint firstItem="w3X-fx-6Ur" firstAttribute="trailing" secondItem="4yR-aM-Rsn" secondAttribute="trailing" priority="750" constant="20" id="jrd-a8-ZtT"/>
@@ -160,6 +176,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp9-29-Tb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Byi-1q-eq7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="206.25" y="173.4375"/>
         </scene>
@@ -178,7 +195,7 @@
                                     <constraint firstAttribute="height" constant="48" id="JFg-Pd-Vzp"/>
                                     <constraint firstAttribute="width" constant="280" id="bVd-iG-WmL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Go Back To Menu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

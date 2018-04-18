@@ -8,15 +8,14 @@
 
 import UIKit
 
-typealias WinCallback = () -> Void
-
 class GameBoardView: UIView {
     
-    var winCallback: WinCallback?
     var gameManager: ConnectFourGameManager?
     var lastOrientation: UIDeviceOrientation?
     
+    // Callbacks
     var shouldRefreshCallback: RefreshCallback?
+    var gameFinishedCallback: GameFinishedCallback?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +46,9 @@ class GameBoardView: UIView {
             self.refreshBoard()
             self.shouldRefreshCallback?()
         }
+        
+        // add game finished callback
+        gameManager?.gameFinishedCallback = gameFinishedCallback
     }
     
     fileprivate func refreshBoard() {
@@ -63,8 +65,8 @@ class GameBoardView: UIView {
                 let position = CFPosition(rows: row, columns: column)
                 let size = CFPosition(rows: game.rows, columns: game.column)
                 
-                if gameManager?.cellStatusMatrix[column][row] != .empty {
-                    _ = self.addGameBoardChecker(withPosition: position, size: size, color: self.gameManager?.colorForPlayer, animated: false)
+                if let cellStatus = gameManager?.cellStatusMatrix[column][row], cellStatus != .empty {
+                    _ = self.addGameBoardChecker(withPosition: position, size: size, color: self.gameManager?.colorForPlayer(cellStatus), animated: false)
                 }
                 
                 addGameBoardCell(withPosition: position, size: size)
@@ -92,9 +94,9 @@ extension GameBoardView {
         
         gameManager?.handleTurn(withColumn: position.columns) { (position, size, isWinner) in
             // add checker
-            self.addGameBoardChecker(withPosition: position, size: size, color: self.gameManager?.colorForPlayer) {
+            self.addGameBoardChecker(withPosition: position, size: size, color: self.gameManager?.colorForPlayer(self.gameManager?.player)) {
                 if isWinner {
-                    self.winCallback?()
+                    self.gameFinishedCallback?(true)
                 }
             }
         }

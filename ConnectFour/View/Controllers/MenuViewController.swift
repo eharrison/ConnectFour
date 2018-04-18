@@ -33,7 +33,7 @@ class MenuViewController: UIViewController {
             self.player1Button.setTitle("\("play_as".localized) \(game.name1)", for: .normal)
             self.player1Button.backgroundColor = game.color1.uiColor
             self.player2Button.setTitle("\("play_as".localized) \(game.name2)", for: .normal)
-            self.player2Button.backgroundColor = game.color1.uiColor
+            self.player2Button.backgroundColor = game.color2.uiColor
         }
     }
     

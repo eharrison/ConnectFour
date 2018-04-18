@@ -17,6 +17,18 @@ class GameFinishedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // setup message
+        if gameFinishedViewModel.won {
+            titleLabel.text = "finish_congratulations".localized
+            messageLabel.text = "finish_won".localized
+        } else {
+            titleLabel.text = "finish_toobad".localized
+            messageLabel.text = "finish_lost".localized
+        }
+        
+        // restart game
+        FirebaseHelper.restart(game: gameFinishedViewModel.game)
     }
     
 }
