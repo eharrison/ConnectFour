@@ -55,7 +55,6 @@
 		0AD2D4012086DAD0005BB2C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D3FF2086DACF005BB2C8 /* Main.storyboard */; };
 		0AD2D4022086DAD0005BB2C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D4002086DAD0005BB2C8 /* LaunchScreen.storyboard */; };
 		0AD2D40A2086DE71005BB2C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D4082086DE71005BB2C8 /* Localizable.strings */; };
-		0AD2D40C20873D34005BB2C8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D40B20873D34005BB2C8 /* README.md */; };
 		4290937E8CFCA2C812462E3F /* Pods_ConnectFourTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8900C20543177B936AE3EB /* Pods_ConnectFourTests.framework */; };
 		7BF3A87E6DF87C7F0C0DE692 /* Pods_ConnectFour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D553B909BA3B5A8CBEC6D0B3 /* Pods_ConnectFour.framework */; };
 /* End PBXBuildFile section */
@@ -133,7 +132,6 @@
 		0AD2D3FF2086DACF005BB2C8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0AD2D4002086DAD0005BB2C8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AD2D4092086DE71005BB2C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0AD2D40B20873D34005BB2C8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1D8900C20543177B936AE3EB /* Pods_ConnectFourTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectFourTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7240881473E3C705A606C73A /* Pods-ConnectFour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectFour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectFour/Pods-ConnectFour.debug.xcconfig"; sourceTree = "<group>"; };
 		7DE2AA29147B2AF61DEE8F27 /* Pods-ConnectFourTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectFourTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectFourTests/Pods-ConnectFourTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -394,7 +392,6 @@
 				0AD2D35E20818F91005BB2C8 /* AppDelegate.swift */,
 				0AD2D3F120849CA0005BB2C8 /* GoogleService-Info.plist */,
 				0AD2D36A20818F92005BB2C8 /* Info.plist */,
-				0AD2D40B20873D34005BB2C8 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -543,7 +540,6 @@
 				0AD2D40A2086DE71005BB2C8 /* Localizable.strings in Resources */,
 				0AD2D4022086DAD0005BB2C8 /* LaunchScreen.storyboard in Resources */,
 				0AD2D3DE2081C634005BB2C8 /* GameBoardCellView.xib in Resources */,
-				0AD2D40C20873D34005BB2C8 /* README.md in Resources */,
 				0AD2D3F220849CA0005BB2C8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
